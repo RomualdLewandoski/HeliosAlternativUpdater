@@ -1,0 +1,59 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Register{% endblock %}
+
+{% block body %}
+    <div class="mx-auto register">
+        <div>
+
+            <a href="{{ path('main') }}"><img src="{{ asset('assets/images/HazielDev.png') }}" class="img-circle"
+                                              alt="Logo Image"></a>
+        </div>
+
+        <div class="card card-register mt-4">
+            <div class="card-body">
+                <h5 class="card-title text-center">Inscription</h5>
+
+                {% for flashError in app.flashes('verify_email_error') %}
+                    <div class="alert alert-danger" role="alert">{{ flashError }}</div>
+                {% endfor %}
+
+
+                {{ form_start(registrationForm, {'attr' : {'class' : 'form-register'}} ) }}
+
+                    {{ form_row(registrationForm.email) }}
+                    {{ form_row(registrationForm.plainPassword) }}
+
+
+                    {{ form_row(registrationForm.agreeTerms) }}
+
+
+                    <button class="btn btn-lg btn-primary btn-block text-uppercase text-center" type="submit">
+                        Register
+                    </button>
+
+                {{ form_end(registrationForm) }}
+                    <hr class="my-4">
+                    <div class="text-center reg-login">
+                        Déjà un compte? <a href="{{ path('app_login') }}">Connexion</a>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <pixel class="purple"></pixel>
+    <pixel class="medium-blue"></pixel>
+    <pixel class="light-blue"></pixel>
+    <pixel class="red"></pixel>
+    <pixel class="orange"></pixel>
+    <pixel class="yellow"></pixel>
+    <pixel class="cyan"></pixel>
+    <pixel class="light-green"></pixel>
+    <pixel class="lime"></pixel>
+    <pixel class="magenta"></pixel>
+    <pixel class="lightish-red"></pixel>
+    <pixel class="pink"></pixel>
+
+
+{% endblock %}

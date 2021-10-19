@@ -1,0 +1,23 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}New DiscordConfig{% endblock %}
+
+{% block body %}
+    <section class="content-header">
+        <h1>
+            Discord
+            <small>Configuration</small>
+        </h1>
+        <ol class="breadcrumb">
+            <li><a href=""><i class="fa fa-dashboard"></i> Home</a></li>
+            <li>Discord</li>
+            <li class="active">Configuration</li>
+        </ol>
+    </section>
+
+    <div class="dashboard1">
+
+        {{ include('discord_config/_form.html.twig') }}
+
+    </div>
+{% endblock %}

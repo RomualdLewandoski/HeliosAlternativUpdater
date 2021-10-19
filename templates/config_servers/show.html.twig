@@ -1,0 +1,124 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Server{% endblock %}
+
+{% block body %}
+    <section class="content-header">
+        <h1>
+            Serveurs
+            <small>Voir</small>
+        </h1>
+        <ol class="breadcrumb">
+            <li><a href=""><i class="fa fa-dashboard"></i> Home</a></li>
+            <li>Serveurs</li>
+            <li class="active">Voir</li>
+        </ol>
+    </section>
+
+    <div class="dashboard1">
+
+        <table class="table">
+            <tbody>
+            <tr>
+                <th>Identifiant</th>
+                <td>{{ server.nameId }}</td>
+            </tr>
+            <tr>
+                <th>Nom</th>
+                <td>{{ server.name }}</td>
+            </tr>
+            <tr>
+                <th>Description</th>
+                <td>{{ server.description }}</td>
+            </tr>
+            <tr>
+                <th>Icon</th>
+                <td>
+                    <img src="{{ server.icon }}" alt="" width="200px">
+                </td>
+            </tr>
+            <tr>
+                <th>Version</th>
+                <td>{{ server.version }}</td>
+            </tr>
+            <tr>
+                <th>Version Minecraft</th>
+                <td>{{ server.minecraftVersion }}</td>
+            </tr>
+            <tr>
+                <th>Forge Version</th>
+                <td>{{ server.forgeHosted == null ? "Aucun": server.forgeHosted.name }}</td>
+            </tr>
+            <tr>
+                <th>Addresse ip</th>
+                <td>{{ server.address }}</td>
+            </tr>
+            <tr>
+                <th>Serveur principal</th>
+                <td>{{ server.mainServer ? 'Oui' : 'Non' }}</td>
+            </tr>
+            <tr>
+                <th>Connexion automatique</th>
+                <td>{{ server.autoConnect ? 'Oui' : 'Non' }}</td>
+            </tr>
+            <tr>
+                <th>Librairies</th>
+                <td>
+                    {% for lib in server.libraries %}
+                        {{ lib.name }} /
+                    {% endfor %}
+                </td>
+            </tr>
+            <tr>
+                <th>Mods</th>
+                <td>
+                    {% for mod in server.mods %}
+                        {{ mod.name }} /
+                    {% endfor %}
+                </td>
+            </tr>
+            <tr>
+                <th>Fichiers</th>
+                <td>
+                    {% for file in server.files %}
+                        {{ file.name }} /
+                    {% endfor %}
+                </td>
+            </tr>
+            <tr>
+                <th>Shaders</th>
+                <td>
+                    {% for shader in server.shaders %}
+                        {{ shader.name }} /
+                    {% endfor %}
+                </td>
+            </tr>
+            <tr>
+                <th>Ressource Packs</th>
+                <td>
+                    {% for res in server.ressourcePacks %}
+                        {{ res.name }} /
+                    {% endfor %}
+                </td>
+            </tr>
+            </tbody>
+        </table>
+
+
+        <div class="row">
+            <div class="col-md-6 text-right">
+                <a href="{{ path('config_servers_edit', {'id': server.id}) }}" class="btn btn-warning btn-lg">Editer</a>
+            </div>
+            <div class="col-md-6">
+                <form method="post" action="{{ path('config_servers_delete', {'id': server.id}) }}"
+                      onsubmit="return confirm('Are you sure you want to delete this item?');">
+                    <input type="hidden" name="_token" value="{{ csrf_token('delete' ~ server.id) }}">
+                    <button class="btn btn-lg btn-danger">Supprimer</button>
+                </form>
+            </div>
+        </div>
+        <a href="{{ path('config_servers_index') }}"><i class="fa fa-arrow-left"></i> Retour à la liste</a>
+
+
+    </div>
+{% endblock %}

@@ -1,0 +1,29 @@
+{% extends 'base.html.twig' %}
+
+
+{% block body %}
+    <section class="content-header">
+        <h1>
+            Serveurs
+            <small>Ajouter un serveur</small>
+        </h1>
+        <ol class="breadcrumb">
+            <li><a href="{{ path('main') }}"><i class="fa fa-dashboard"></i> Admin</a></li>
+            <li><a href="#">Serveurs</a></li>
+            <li class="active">Ajouter</li>
+        </ol>
+    </section>
+    <div class="dashboard1">
+
+        {{ form_start(form) }}
+        {{ form_widget(form) }}
+        <div class="text-center">
+            <button class="btn btn-lg btn-success">{{ button_label|default('Enregistrer') }}</button>
+
+        </div>
+        {{ form_end(form) }}
+
+
+        <a href="{{ path('config_servers_index') }}"><i class="fa fa-arrow-left"></i> Retour à la liste</a>
+    </div>
+{% endblock %}

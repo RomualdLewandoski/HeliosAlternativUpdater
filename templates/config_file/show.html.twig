@@ -1,0 +1,69 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Files{% endblock %}
+
+{% block body %}
+    <section class="content-header">
+        <h1>
+            Fichiers
+            <small>Voir</small>
+        </h1>
+        <ol class="breadcrumb">
+            <li><a href=""><i class="fa fa-dashboard"></i> Home</a></li>
+            <li>Fichiers</li>
+            <li class="active">Voir</li>
+        </ol>
+    </section>
+
+    <div class="dashboard1">
+
+        <table class="table">
+            <tbody>
+            <tr>
+                <th>Identifiant</th>
+                <td>{{ file.IdName }}</td>
+            </tr>
+            <tr>
+                <th>Nom</th>
+                <td>{{ file.name }}</td>
+            </tr>
+            <tr>
+                <th>Taille</th>
+                <td>{{ file.size }}</td>
+            </tr>
+            <tr>
+                <th>Verification du fichier ?</th>
+                <td>{{ file.isMd5 ? 'Oui' : 'Non' }}</td>
+            </tr>
+            <tr>
+                <th>Md5</th>
+                <td>{{ file.md5 }}</td>
+            </tr>
+            <tr>
+                <th>Url</th>
+                <td>{{ file.url }}</td>
+            </tr>
+            <tr>
+                <th>Chemin</th>
+                <td>{{ file.path }}</td>
+            </tr>
+            </tbody>
+        </table>
+
+        <div class="row">
+            <div class="col-md-6 text-right">
+                <a href="{{ path('config_file_edit', {'id': file.id}) }}" class="btn btn-warning btn-lg">Editer</a>
+            </div>
+            <div class="col-md-6">
+                <form method="post" action="{{ path('config_file_delete', {'id': file.id}) }}"
+                      onsubmit="return confirm('Are you sure you want to delete this item?');">
+                    <input type="hidden" name="_token" value="{{ csrf_token('delete' ~ file.id) }}">
+                    <button class="btn btn-lg btn-danger">Supprimer</button>
+                </form>
+            </div>
+        </div>
+        <a href="{{ path('config_file_index') }}"><i class="fa fa-arrow-left"></i> Retour à la liste</a>
+
+
+    </div>
+{% endblock %}

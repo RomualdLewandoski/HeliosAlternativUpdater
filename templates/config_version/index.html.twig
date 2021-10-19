@@ -1,0 +1,66 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Version index{% endblock %}
+
+{% block body %}
+<section class="content-header">
+    <h1>
+        VersionManifest
+        <small>Liste</small>
+    </h1>
+    <ol class="breadcrumb">
+        <li><a href=""><i class="fa fa-dashboard"></i> Home</a></li>
+        <li>VersionManifest</li>
+        <li class="active">Liste</li>
+    </ol>
+</section>
+
+<div class="dashboard1">
+
+    <div class="row">
+        <div class="col-md-12 text-right mb-4">
+            <a href="{{ path('config_version_new') }}" class="btn btn-sm btn-success"><i class="fa fa-plus"></i>
+                Créer</a>
+        </div>
+    </div>
+    <div class="col-md-12 table-responsive">
+
+        <table class="table" id="myTable">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Nom</th>
+                <th>Taille</th>
+                <th>Md5</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for version in versions %}
+            <tr>
+                <td>{{ version.idName }}</td>
+                <td>{{ version.name }}</td>
+                <td>{{ version.size }}</td>
+                <td>{{ version.md5 }}</td>
+                <td>
+                    <a href="{{ path('config_version_show', {'id': version.id}) }}" class="btn btn-sm btn-success">Voir</a>
+                    <a href="{{ path('config_version_edit', {'id': version.id}) }}" class="btn btn-sm btn-warning">Editer</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="8">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+        <script>
+            $(document).ready(() => {
+                $('#myTable').dataTable()
+            })
+        </script>
+    </div>
+
+
+</div>
+{% endblock %}

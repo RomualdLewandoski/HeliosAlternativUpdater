@@ -1,0 +1,62 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Log in!{% endblock %}
+
+{% block body %}
+    <!-- Page Content Starts-->
+        <div class="mx-auto login">
+            <div>
+
+                <a href="{{ path('main') }}"><img src="{{ asset('assets/images/HazielDev.png') }}" class="img-circle"
+                                                  alt="Logo Image"></a>
+            </div>
+
+            <div class="card card-signin mt-4">
+                <div class="card-body">
+                    <h5 class="card-title text-center">Connexion</h5>
+                    <form method="post" class="form-signin">
+                        {% if error %}
+                            <div class="alert alert-danger">{{ error.messageKey|trans(error.messageData, 'security') }}</div>
+                        {% endif %}
+
+                        {% if app.user %}
+                            <div class="mb-3">
+                                You are logged in as {{ app.user.username }}, <a
+                                        href="{{ path('app_logout') }}">Logout</a>
+                            </div>
+                        {% endif %}
+
+                        <div class="form-label-group">
+                            <input type="email" value="{{ last_username }}" name="email" id="inputEmail"
+                                   class="form-control" placeholder="Email address" required autofocus>
+                        </div>
+                        <div class="form-label-group">
+                            <input type="password" name="password" id="inputPassword" class="form-control"
+                                   placeholder="Password" required>
+                        </div>
+                        <input type="hidden" name="_csrf_token"
+                               value="{{ csrf_token('authenticate') }}">
+
+                        <button class="btn btn-lg btn-primary btn-block text-uppercase text-center">Connexion</button>
+
+                    </form>
+
+                </div>
+            </div>
+
+    </div>
+
+    <pixel class="purple"></pixel>
+    <pixel class="medium-blue"></pixel>
+    <pixel class="light-blue"></pixel>
+    <pixel class="red"></pixel>
+    <pixel class="orange"></pixel>
+    <pixel class="yellow"></pixel>
+    <pixel class="cyan"></pixel>
+    <pixel class="light-green"></pixel>
+    <pixel class="lime"></pixel>
+    <pixel class="magenta"></pixel>
+    <pixel class="lightish-red"></pixel>
+    <pixel class="pink"></pixel>
+
+{% endblock %}

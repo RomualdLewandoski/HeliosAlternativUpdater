@@ -1,0 +1,39 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}DiscordConfig index{% endblock %}
+
+{% block body %}
+    <h1>DiscordConfig index</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>ClientId</th>
+                <th>SmallImageKey</th>
+                <th>SmallImageText</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for discord_config in discord_configs %}
+            <tr>
+                <td>{{ discord_config.id }}</td>
+                <td>{{ discord_config.clientId }}</td>
+                <td>{{ discord_config.smallImageKey }}</td>
+                <td>{{ discord_config.smallImageText }}</td>
+                <td>
+                    <a href="{{ path('discord_config_show', {'id': discord_config.id}) }}">show</a>
+                    <a href="{{ path('discord_config_edit', {'id': discord_config.id}) }}">edit</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="5">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{{ path('discord_config_new') }}">Create new</a>
+{% endblock %}

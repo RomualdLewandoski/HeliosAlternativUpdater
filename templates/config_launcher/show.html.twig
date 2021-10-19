@@ -1,0 +1,58 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}LauncherConfig{% endblock %}
+
+{% block body %}
+    <h1>LauncherConfig</h1>
+
+    <table class="table">
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ launcher_config.id }}</td>
+            </tr>
+            <tr>
+                <th>FallbackVideo</th>
+                <td>{{ launcher_config.fallbackVideo }}</td>
+            </tr>
+            <tr>
+                <th>FallbackAudio</th>
+                <td>{{ launcher_config.fallbackAudio }}</td>
+            </tr>
+            <tr>
+                <th>LoginApi</th>
+                <td>{{ launcher_config.loginApi }}</td>
+            </tr>
+            <tr>
+                <th>SkinApi</th>
+                <td>{{ launcher_config.skinApi }}</td>
+            </tr>
+            <tr>
+                <th>ServerIp</th>
+                <td>{{ launcher_config.serverIp }}</td>
+            </tr>
+            <tr>
+                <th>ServerPort</th>
+                <td>{{ launcher_config.serverPort }}</td>
+            </tr>
+            <tr>
+                <th>DistroList</th>
+                <td>{{ launcher_config.distroList }}</td>
+            </tr>
+            <tr>
+                <th>SiteName</th>
+                <td>{{ launcher_config.siteName }}</td>
+            </tr>
+            <tr>
+                <th>NewsApi</th>
+                <td>{{ launcher_config.newsApi }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <a href="{{ path('config_launcher_index') }}">back to list</a>
+
+    <a href="{{ path('config_launcher_edit', {'id': launcher_config.id}) }}">edit</a>
+
+    {{ include('config_launcher/_delete_form.html.twig') }}
+{% endblock %}

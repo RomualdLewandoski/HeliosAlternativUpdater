@@ -1,0 +1,133 @@
+:root {
+    --background: #333842;
+    --background-dark: #2a2f38;
+    --background-darker: #21262f;
+    --mention-background: rgba(53, 163, 216, 0.1);
+    --mention-left-thing: #3487CE;
+    --highlight: rgba(68, 136, 220, 0.1);
+    --highlight-hover: rgba(51, 107, 191, 0.7);
+    --links: #5294E2;
+    --gray: #979C9E;
+    --lighter-gray: #9C9C9C;
+    --white-gray: #D6D6D6;
+    --blue-ish: #5294E2;
+    --blue-darker: #357bce;
+    --code-background: #25292f;
+    --code-border-color: #25292f;
+    --scrollbar-color: #222529;
+    --input-background: #2c313a;
+    --primary-nigth: #5865F2;
+    --primary-nigth-hover: #5875F2;
+    --warning-nigth: #FEE75C;
+    --warning-nigth-hover: #FEF75C;
+}
+
+
+img:not(:hover) {
+    opacity: .7;
+    transition: opacity .25s ease-in-out;
+}
+
+body {
+    background: var(--background);
+    color: var(--lighter-gray);
+}
+
+.content-wrapper {
+    background: var(--background);
+}
+
+.main-footer {
+    background: var(--background-darker);
+    border-color: var(--background-dark);
+    color: var(--lighter-gray);
+}
+
+.user-footer {
+    background-color: var(--background-darker) !important;
+}
+
+.btn-default {
+    background-color: var(--highlight);
+    border-color: var(--blue-ish);
+    color: white;
+}
+
+.btn-default:hover {
+    background-color: var(--highlight-hover);
+}
+
+.navbar-nav > .user-menu > .dropdown-menu > .user-footer .btn-default {
+    color: white;
+}
+
+.content-header > .breadcrumb > li > a {
+    color: inherit;
+}
+
+.cardbg {
+    background: var(--code-background);
+    border-color: var(--code-border-color);
+}
+
+p {
+    color: var(--lighter-gray);
+}
+
+.text-white {
+    color: var(--white-gray) !important;
+}
+
+.form-control, .form-control:focus {
+    background-color: var(--input-background);
+    color: var(--lighter-gray);
+}
+
+.btn-outline-success {
+    border-color: var(--primary-nigth);
+    color: var(--primary-nigth);
+}
+
+.btn-outline-success:hover {
+    background-color: var(--primary-nigth-hover);
+    border-color: var(--primary-nigth-hover);
+    color: var(--white-gray);
+}
+
+.btn-success {
+    background-color: var(--primary-nigth);
+    border-color: var(--primary-nigth);
+    color: var(--white-gray);
+}
+
+.btn-success:hover {
+    background-color: var(--primary-nigth-hover);
+    border-color: var(--primary-nigth-hover);
+    color: white;
+}
+
+.page-item.disabled .page-link {
+    color: var(--lighter-gray);
+    background-color: var(--code-background);
+    border-color: var(--code-border-color);
+}
+
+.page-item.active .page-link {
+    background-color: var(--primary-nigth);
+    border-color: var(--primary-nigth-hover);
+}
+
+/**
+FIX FOR AUTO FILL INPUT
+ */
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus,
+input:-webkit-autofill:active {
+    transition: all 5000s ease-in-out 0s;
+    transition-property: background-color, color;
+}
+
+.img-preview > i {
+    color: white!important;
+}

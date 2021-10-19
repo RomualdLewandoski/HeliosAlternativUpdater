@@ -1,0 +1,51 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}LauncherConfig index{% endblock %}
+
+{% block body %}
+    <h1>LauncherConfig index</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>FallbackVideo</th>
+                <th>FallbackAudio</th>
+                <th>LoginApi</th>
+                <th>SkinApi</th>
+                <th>ServerIp</th>
+                <th>ServerPort</th>
+                <th>DistroList</th>
+                <th>SiteName</th>
+                <th>NewsApi</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for launcher_config in launcher_configs %}
+            <tr>
+                <td>{{ launcher_config.id }}</td>
+                <td>{{ launcher_config.fallbackVideo }}</td>
+                <td>{{ launcher_config.fallbackAudio }}</td>
+                <td>{{ launcher_config.loginApi }}</td>
+                <td>{{ launcher_config.skinApi }}</td>
+                <td>{{ launcher_config.serverIp }}</td>
+                <td>{{ launcher_config.serverPort }}</td>
+                <td>{{ launcher_config.distroList }}</td>
+                <td>{{ launcher_config.siteName }}</td>
+                <td>{{ launcher_config.newsApi }}</td>
+                <td>
+                    <a href="{{ path('config_launcher_show', {'id': launcher_config.id}) }}">show</a>
+                    <a href="{{ path('config_launcher_edit', {'id': launcher_config.id}) }}">edit</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="11">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{{ path('config_launcher_new') }}">Create new</a>
+{% endblock %}

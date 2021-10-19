@@ -1,0 +1,30 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}New ForgeHosted{% endblock %}
+
+{% block body %}
+    <section class="content-header">
+        <h1>
+            Executables Forge
+            <small>Ajouter</small>
+        </h1>
+        <ol class="breadcrumb">
+            <li><a href=""><i class="fa fa-dashboard"></i> Home</a></li>
+            <li>Executables Forge</li>
+            <li class="active">Ajouter</li>
+        </ol>
+    </section>
+    <div class="dashboard1">
+
+        {{ form_start(form) }}
+        {{ form_widget(form) }}
+        <div class="text-center">
+            <button class="btn btn-lg btn-success">{{ button_label|default('Enregistrer') }}</button>
+
+        </div>
+        {{ form_end(form) }}
+
+
+        <a href="{{ path('config_forge_hosted_index') }}"><i class="fa fa-arrow-left"></i> Retour à la liste</a>
+    </div>
+{% endblock %}

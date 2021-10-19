@@ -1,0 +1,29 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}New LauncherConfig{% endblock %}
+
+{% block body %}
+    <section class="content-header">
+        <h1>
+            Launcher
+            <small>Configuration</small>
+        </h1>
+        <ol class="breadcrumb">
+            <li><a href=""><i class="fa fa-dashboard"></i> Home</a></li>
+            <li>Launcher</li>
+            <li class="active">Configuration</li>
+        </ol>
+    </section>
+    <div class="dashboard1">
+
+        {{ form_start(form) }}
+        {{ form_widget(form) }}
+        <div class="text-center">
+            <button class="btn btn-lg btn-success">{{ button_label|default('Enregistrer') }}</button>
+
+        </div>
+        {{ form_end(form) }}
+
+
+    </div>
+{% endblock %}

@@ -1,0 +1,68 @@
+{% extends 'base.html.twig' %}
+
+
+{% block body %}
+<section class="content-header">
+    <h1>
+        Serveurs
+        <small>Liste</small>
+    </h1>
+    <ol class="breadcrumb">
+        <li><a href=""><i class="fa fa-dashboard"></i> Home</a></li>
+        <li>Serveurs</li>
+        <li class="active">Liste</li>
+    </ol>
+</section>
+
+<div class="dashboard1">
+
+    <div class="row">
+        <div class="col-md-12 text-right mb-4">
+            <a href="{{ path('config_servers_new') }}" class="btn btn-sm btn-success"><i class="fa fa-plus"></i>
+                Créer</a>
+        </div>
+    </div>
+    <div class="col-md-12 table-responsive">
+
+        <table class="table" id="myTable">
+            <thead>
+            <tr>
+                <th>Id</th>
+                <th>Nom</th>
+                <th>Version</th>
+                <th>Version Minecraft</th>
+                <th>Serveur principal ? </th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for server in servers %}
+            <tr>
+                <td>{{ server.id }}</td>
+                <td>{{ server.name }}</td>
+                <td>{{ server.version }}</td>
+                <td>{{ server.minecraftVersion }}</td>
+                <td>{{ server.mainServer ? 'Oui' : 'Non' }}</td>
+                <td>
+                    <a href="{{ path('config_servers_show', {'id': server.id}) }}" class="btn btn-success btn-sm">Voir</a>
+                    <a href="{{ path('config_servers_edit', {'id': server.id}) }}" class="btn btn-warning btn-sm">Editer</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="10">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+        <script>
+            $(document).ready(() => {
+                $('#myTable').dataTable()
+            })
+        </script>
+    </div>
+
+
+</div>
+
+{% endblock %}

@@ -1,0 +1,13 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Edit DiscordConfig{% endblock %}
+
+{% block body %}
+    <h1>Edit DiscordConfig</h1>
+
+    {{ include('discord_config/_form.html.twig', {'button_label': 'Update'}) }}
+
+    <a href="{{ path('discord_config_index') }}">back to list</a>
+
+    {{ include('discord_config/_delete_form.html.twig') }}
+{% endblock %}

@@ -1,0 +1,66 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Files index{% endblock %}
+
+{% block body %}
+    <section class="content-header">
+        <h1>
+            Fichiers
+            <small>Liste</small>
+        </h1>
+        <ol class="breadcrumb">
+            <li><a href=""><i class="fa fa-dashboard"></i> Home</a></li>
+            <li>Fichiers</li>
+            <li class="active">Liste</li>
+        </ol>
+    </section>
+
+    <div class="dashboard1">
+
+        <div class="row">
+            <div class="col-md-12 text-right mb-4">
+                <a href="{{ path('config_file_new') }}" class="btn btn-sm btn-success"><i class="fa fa-plus"></i>
+                    Créer</a>
+            </div>
+        </div>
+        <div class="col-md-12 table-responsive">
+
+            <table class="table" id="myTable">
+                <thead>
+                <tr>
+                    <th>Id</th>
+                    <th>Nom</th>
+                    <th>Taille</th>
+                    <th>Vérification du fichier ?</th>
+                    <th>actions</th>
+                </tr>
+                </thead>
+                <tbody>
+                {% for file in files %}
+                    <tr>
+                        <td>{{ file.IdName }}</td>
+                        <td>{{ file.name }}</td>
+                        <td>{{ file.size }}</td>
+                        <td>{{ file.isMd5 ? 'Oui' : 'Non' }}</td>
+                        <td>
+                            <a href="{{ path('config_file_show', {'id': file.id}) }}" class="btn btn-sm btn-success">show</a>
+                            <a href="{{ path('config_file_edit', {'id': file.id}) }}" class="btn btn-sm btn-warning">edit</a>
+                        </td>
+                    </tr>
+                {% else %}
+                    <tr>
+                        <td colspan="9">no records found</td>
+                    </tr>
+                {% endfor %}
+                </tbody>
+            </table>
+            <script>
+                $(document).ready(() => {
+                    $('#myTable').dataTable()
+                })
+            </script>
+        </div>
+
+
+    </div>
+{% endblock %}

@@ -1,0 +1,63 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Shader{% endblock %}
+
+{% block body %}
+    <section class="content-header">
+        <h1>
+            Shaders
+            <small>Voir</small>
+        </h1>
+        <ol class="breadcrumb">
+            <li><a href=""><i class="fa fa-dashboard"></i> Home</a></li>
+            <li>Shaders</li>
+            <li class="active">Voir</li>
+        </ol>
+    </section>
+
+    <div class="dashboard1">
+    <table class="table">
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ shader.idName }}</td>
+            </tr>
+            <tr>
+                <th>Nom</th>
+                <td>{{ shader.name }}</td>
+            </tr>
+            <tr>
+                <th>Taile</th>
+                <td>{{ shader.size }}</td>
+            </tr>
+            <tr>
+                <th>Md5</th>
+                <td>{{ shader.md5 }}</td>
+            </tr>
+            <tr>
+                <th>Url</th>
+                <td>{{ shader.url }}</td>
+            </tr>
+            <tr>
+                <th>Chemin</th>
+                <td>{{ shader.path }}</td>
+            </tr>
+        </tbody>
+    </table>
+    <div class="row">
+        <div class="col-md-6 text-right">
+            <a href="{{ path('config_shader_edit', {'id': shader.id}) }}" class="btn btn-warning btn-lg">Editer</a>
+        </div>
+        <div class="col-md-6">
+            <form method="post" action="{{ path('config_shader_delete', {'id': shader.id}) }}"
+                  onsubmit="return confirm('Are you sure you want to delete this item?');">
+                <input type="hidden" name="_token" value="{{ csrf_token('delete' ~ shader.id) }}">
+                <button class="btn btn-lg btn-danger">Supprimer</button>
+            </form>
+        </div>
+    </div>
+    <a href="{{ path('config_shader_index') }}"><i class="fa fa-arrow-left"></i> Retour à la liste</a>
+
+
+    </div>
+{% endblock %}

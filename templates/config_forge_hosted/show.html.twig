@@ -1,0 +1,64 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}ForgeHosted{% endblock %}
+
+{% block body %}
+<section class="content-header">
+    <h1>
+        Executables Forge
+        <small>Voir</small>
+    </h1>
+    <ol class="breadcrumb">
+        <li><a href=""><i class="fa fa-dashboard"></i> Home</a></li>
+        <li>Executables Forge</li>
+        <li class="active">Voir</li>
+    </ol>
+</section>
+
+<div class="dashboard1">
+    <table class="table">
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ forge_hosted.idName }}</td>
+            </tr>
+            <tr>
+                <th>Nom</th>
+                <td>{{ forge_hosted.name }}</td>
+            </tr>
+            <tr>
+                <th>Type</th>
+                <td>{{ forge_hosted.type }}</td>
+            </tr>
+            <tr>
+                <th>Taille</th>
+                <td>{{ forge_hosted.size }}</td>
+            </tr>
+            <tr>
+                <th>Md5</th>
+                <td>{{ forge_hosted.md5 }}</td>
+            </tr>
+            <tr>
+                <th>Url</th>
+                <td>{{ forge_hosted.url }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <div class="row">
+        <div class="col-md-6 text-right">
+            <a href="{{ path('config_forge_hosted_edit', {'id': forge_hosted.id}) }}" class="btn btn-warning btn-lg">Editer</a>
+        </div>
+        <div class="col-md-6">
+            <form method="post" action="{{ path('config_forge_hosted_delete', {'id': forge_hosted.id}) }}"
+                  onsubmit="return confirm('Are you sure you want to delete this item?');">
+                <input type="hidden" name="_token" value="{{ csrf_token('delete' ~ forge_hosted.id) }}">
+                <button class="btn btn-lg btn-danger">Supprimer</button>
+            </form>
+        </div>
+    </div>
+    <a href="{{ path('config_forge_hosted_index') }}"><i class="fa fa-arrow-left"></i> Retour à la liste</a>
+
+
+</div>
+{% endblock %}

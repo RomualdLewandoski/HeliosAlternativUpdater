@@ -1,0 +1,58 @@
+DiscordConfig [OK]
+	- clientId
+	- smallImageKey
+	- smallImageText
+
+Java
+	- oracle
+
+servers[OK]
+	- id
+	- name
+	- description
+	- icon
+	- version (not mc version)
+	- address
+	- minecraftVersion
+	- discordShortId
+	- discordLargeImageText
+	- discordLargeImageKey
+	- mainServer (bool)
+	- autoconnect (bool)
+	
+- modules []
+    - id
+    - name
+    - type (Library, ForgeMod, File)
+    - required
+        - value (bool)
+        - def (bool)
+    - artifact
+        - size
+        - MD5 (optional)
+        - url
+        - path (onlyForFiles)
+
+
+
+------------------------------------------------------------------------
+MENUS:
+
+RessourcesPack : saved in resourcepacks/Name.zip (count as file) (have MD5) [OK]
+ShaderPack: saved in shaderpacks/Name.zip (count as file) (have MD5) [OK]
+File : choose saved destination (option to have md5 checking) [OK]
+
+Library : (shoud be stored as submodules) have md5 and size [OK]
+ForgeHosted: [OK]
+
+LauncherConfig: video, audio and other stuff (check github) [ok]
+----------------------------------------------------------------------------
+
+VersionManifest
+
+Import JSON from Nebula
+
+----------------------------------------------------------------------------------------------------
+
+
+

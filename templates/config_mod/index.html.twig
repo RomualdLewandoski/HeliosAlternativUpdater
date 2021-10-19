@@ -1,0 +1,67 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Mod index{% endblock %}
+
+{% block body %}
+    <section class="content-header">
+        <h1>
+            Mods
+            <small>Liste</small>
+        </h1>
+        <ol class="breadcrumb">
+            <li><a href=""><i class="fa fa-dashboard"></i> Home</a></li>
+            <li>Mods</li>
+            <li class="active">Liste</li>
+        </ol>
+    </section>
+
+    <div class="dashboard1">
+
+        <div class="row">
+            <div class="col-md-12 text-right mb-4">
+                <a href="{{ path('config_mod_new') }}" class="btn btn-sm btn-success"><i class="fa fa-plus"></i>
+                    Créer</a>
+            </div>
+        </div>
+        <div class="col-md-12 table-responsive">
+
+            <table class="table" id="myTable">
+                <thead>
+                <tr>
+                    <th>Id</th>
+                    <th>Nom</th>
+                    <th>Taille</th>
+                    <th>Md5</th>
+                    <th>actions</th>
+                </tr>
+                </thead>
+                <tbody>
+                {% for mod in mods %}
+                    <tr>
+                        <td>{{ mod.idName }}</td>
+                        <td>{{ mod.name }}</td>
+                        <td>{{ mod.size }}</td>
+                        <td>{{ mod.md5 }}</td>
+                        <td>
+                            <a href="{{ path('config_mod_show', {'id': mod.id}) }}"
+                               class="btn btn-sm btn-success">Voir</a>
+                            <a href="{{ path('config_mod_edit', {'id': mod.id}) }}" class="btn btn-sm btn-warning">Editer</a>
+                        </td>
+                    </tr>
+                {% else %}
+                    <tr>
+                        <td colspan="8">no records found</td>
+                    </tr>
+                {% endfor %}
+                </tbody>
+            </table>
+            <script>
+                $(document).ready(() => {
+                    $('#myTable').dataTable()
+                })
+            </script>
+        </div>
+
+
+    </div>
+{% endblock %}
