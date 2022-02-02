@@ -1,0 +1,11 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}New FFile{% endblock %}
+
+{% block body %}
+    <h1>Create new FFile</h1>
+
+    {{ include('config_f_file/_form.html.twig') }}
+
+    <a href="{{ path('config_f_file_index') }}">back to list</a>
+{% endblock %}

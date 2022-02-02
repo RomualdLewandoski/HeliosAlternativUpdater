@@ -1,0 +1,63 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}FMod{% endblock %}
+
+{% block body %}
+<section class="content-header">
+    <h1>
+        Mods
+        <small>Voir</small>
+    </h1>
+    <ol class="breadcrumb">
+        <li><a href=""><i class="fa fa-dashboard"></i> Home</a></li>
+        <li>Mods</li>
+        <li class="active">Voir</li>
+    </ol>
+</section>
+
+<div class="dashboard1">
+    <table class="table">
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ f_mod.id }}</td>
+            </tr>
+            <tr>
+                <th>Nom</th>
+                <td>{{ f_mod.name }}</td>
+            </tr>
+            <tr>
+                <th>Sha</th>
+                <td>{{ f_mod.sha }}</td>
+            </tr>
+            <tr>
+                <th>Taille</th>
+                <td>{{ f_mod.size }}</td>
+            </tr>
+            <tr>
+                <th>Mod actif ?</th>
+                <td>{{ f_mod.isEnabled ? "Oui": "Non" }}</td>
+            </tr>
+            <tr>
+                <th>Url</th>
+                <td>{{ f_mod.url }}</td>
+            </tr>
+        </tbody>
+    </table>
+    <div class="row">
+        <div class="col-md-6 text-right">
+            <a href="{{ path('config_f_mod_edit', {'id': f_mod.id}) }}" class="btn btn-warning btn-lg">Editer</a>
+        </div>
+        <div class="col-md-6">
+            <form method="post" action="{{ path('config_f_mod_delete', {'id': f_mod.id}) }}"
+                  onsubmit="return confirm('Are you sure you want to delete this item?');">
+                <input type="hidden" name="_token" value="{{ csrf_token('delete' ~ f_mod.id) }}">
+                <button class="btn btn-lg btn-danger">Supprimer</button>
+            </form>
+        </div>
+    </div>
+    <a href="{{ path('config_f_mod_index') }}"><i class="fa fa-arrow-left"></i> Retour à la liste</a>
+
+
+</div>
+{% endblock %}

@@ -42,7 +42,7 @@ class ConfigModController extends AbstractController
             $file = $webPath . $mod->getUrl();
             $size = filesize($file);
             $mod->setSize($size);
-            $md5 = md5_file($file);
+            $md5 = sha1_file($file);
             $mod->setMd5($md5);
 
             if ($mod->getIsRequired()) {
@@ -85,7 +85,7 @@ class ConfigModController extends AbstractController
             $file = $webPath . $mod->getUrl();
             $size = filesize($file);
             $mod->setSize($size);
-            $md5 = md5_file($file);
+            $md5 = sha1_file($file);
             $mod->setMd5($md5);
             if ($mod->getIsRequired()) {
                 $mod->setIsEnabled(true);

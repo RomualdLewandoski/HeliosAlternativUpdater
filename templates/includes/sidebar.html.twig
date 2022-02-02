@@ -15,45 +15,22 @@
                     </a>
                 </li>
 
-                <li class="header">Téléchargement</li>
-                <li class="{% if currentPath == "config_download" %} active {% endif %}">
-                    <a href="{{ path('config_download') }}">
-                        <i class="fa fa-rocket"></i> <span>Liens des launchers</span>
-                    </a>
+                <li class="header">
+                    Configuration Launcher
                 </li>
 
-                <li class="header">Serveurs</li>
-                <li class="{% if currentPath == "config_servers_index" or currentPath == "config_servers_new" or currentPath == "config_servers_edit" or currentPath == "config_servers_show" %} active {% endif %}">
-                    <a href="{{ path('config_servers_index') }}">
-                        <i class="fa fa-server"></i> <span>Liste des serveurs</span>
+                <li class="{% if currentPath == "config_launcher_landing" or
+                    currentPath == "config_download" or
+                    currentPath == "config_launcher_index"
+
+                %} active{% endif %}">
+                    <a href="{{ path('config_launcher_landing') }}">
+                        <i class="far fa-rocket"></i> <span>Gestion du launcher</span>
                     </a>
                 </li>
 
                 <li class="header">Fichiers</li>
 
-                <li class="{% if currentPath == "config_forge_hosted_index" or currentPath == "config_forge_hosted_new" or currentPath == "config_forge_hosted_edit" or currentPath == "config_forge_hosted_show" %} active{% endif %}">
-                    <a href="{{ path('config_forge_hosted_index') }}">
-                        <i class="far fa-hammer"></i> <span>Executable Forge</span>
-                    </a>
-                </li>
-
-                <li class="{% if currentPath == "config_version_index" or
-                    currentPath == "config_version_new" or
-                    currentPath == "config_version_edit" or
-                    currentPath == "config_version_show" %} active{% endif %}">
-                    <a href="{{ path('config_version_index') }}">
-                        <i class="far fa-code"></i> <span>VersionManifest</span>
-                    </a>
-                </li>
-
-                <li class="{% if currentPath == "config_library_index" or
-                    currentPath == "config_library_new" or
-                    currentPath == "config_library_edit" or
-                    currentPath == "config_library_show" %} active{% endif %}">
-                    <a href="{{ path('config_library_index') }}">
-                        <i class="far fa-book"></i> <span>Librairies</span>
-                    </a>
-                </li>
 
                 <li class="{% if currentPath == "config_file_index" or
                     currentPath == "config_file_new" or
@@ -64,46 +41,13 @@
                     </a>
                 </li>
 
-                <li class="{% if currentPath == "config_mod_index" or
-                    currentPath == "config_mod_new" or
-                    currentPath == "config_mod_edit" or
-                    currentPath == "config_mod_show" %} active{% endif %}">
-                    <a href="{{ path('config_mod_index') }}">
+                <li class="{% if currentPath == "config_f_mod_index" or
+                    currentPath == "config_f_mod_new" or
+                    currentPath == "config_f_mod_edit" or
+                    currentPath == "config_f_mod_show" %} active{% endif %}">
+                    <a href="{{ path('config_f_mod_index') }}">
                         <i class="fab fa-modx"></i> <span>Mods</span>
                     </a>
-                </li>
-
-                <li class="{% if currentPath == "config_shader_index" or
-                    currentPath == "config_shader_new" or
-                    currentPath == "config_shader_edit" or
-                    currentPath == "config_shader_show" %} active{% endif %}">
-                    <a href="{{ path('config_shader_index') }}">
-                        <i class="far fa-pallet"></i> <span>Shaders</span>
-                    </a>
-                </li>
-
-                <li class="{% if currentPath == "config_ressourcepack_index" or
-                    currentPath == "config_ressourcepack_new" or
-                    currentPath == "config_ressourcepack_edit" or
-                    currentPath == "config_ressourcepack_show" %} active{% endif %}">
-                    <a href="{{ path('config_ressourcepack_index') }}">
-                        <i class="far fa-paint-brush"></i> <span>Ressources pack</span>
-                    </a>
-                </li>
-
-                <li class="header">
-                    Configuration Launcher
-                </li>
-
-                <li class="{% if currentPath == "config_launcher_index" %} active {% endif %}">
-                    <a href="{{ path('config_launcher_index') }}">
-                        <i class="far fa-rocket"></i> <span>Gestion du launcher</span>
-                    </a>
-                </li>
-
-                <li class="header">IMPORT</li>
-                <li>
-                    <a href="{{ path('config_json_import') }}"><i class="far fa-cogs"></i> Importer la configuration</a>
                 </li>
 
             </ul>

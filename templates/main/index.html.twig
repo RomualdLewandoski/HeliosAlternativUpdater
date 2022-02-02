@@ -52,4 +52,54 @@
 
         </div>
     </div>
+
+    <section class="content-header">
+        <h1>
+            Gestionnaire
+        </h1>
+    </section>
+    <div class="dashboard1">
+        <div class="row">
+            <a href="{{ path('discord_config_index') }}" class="col-xl-3 col-lg-6 col-12">
+                <div class="counter-box">
+                    <div class="shadow bg4">
+                        <div class="text-white text-center">
+                            <i class="fab fa-discord fa-2x"></i>
+                            <div class="mt-2">Discord</div>
+                        </div>
+                    </div>
+                </div>
+            </a>
+            <a href="{{ path('config_launcher_landing') }}" class="col-xl-3 col-lg-6 col-12">
+                <div class="counter-box">
+                    <div class="shadow bg2">
+                        <div class="text-white text-center">
+                            <i class="fa fa-rocket fa-2x"></i>
+                            <div class="mt-2">Launcher</div>
+                        </div>
+                    </div>
+                </div>
+            </a>
+            <a href="{{ path('config_f_mod_index') }}" class="col-xl-3 col-lg-6 col-12">
+                <div class="counter-box">
+                    <div class="shadow bg1">
+                        <div class="text-white text-center">
+                            <i class="fa fa-modx fa-2x"></i>
+                            <div class="mt-2">Mods</div>
+                        </div>
+                    </div>
+                </div>
+            </a>
+            <a href="{{ path('config_file_index') }}" class="col-xl-3 col-lg-6 col-12">
+                <div class="counter-box">
+                    <div class="shadow bg3">
+                        <div class="text-white text-center">
+                            <i class="fa fa-file fa-2x"></i>
+                            <div class="mt-2">Fichiers</div>
+                        </div>
+                    </div>
+                </div>
+            </a>
+        </div>
+    </div>
 {% endblock %}

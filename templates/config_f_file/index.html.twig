@@ -1,0 +1,45 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}FFile index{% endblock %}
+
+{% block body %}
+    <h1>FFile index</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Name</th>
+                <th>Path</th>
+                <th>Url</th>
+                <th>Sha</th>
+                <th>Size</th>
+                <th>IsUpdate</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for f_file in f_files %}
+            <tr>
+                <td>{{ f_file.id }}</td>
+                <td>{{ f_file.name }}</td>
+                <td>{{ f_file.path }}</td>
+                <td>{{ f_file.url }}</td>
+                <td>{{ f_file.sha }}</td>
+                <td>{{ f_file.size }}</td>
+                <td>{{ f_file.isUpdate ? 'Yes' : 'No' }}</td>
+                <td>
+                    <a href="{{ path('config_f_file_show', {'id': f_file.id}) }}">show</a>
+                    <a href="{{ path('config_f_file_edit', {'id': f_file.id}) }}">edit</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="8">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{{ path('config_f_file_new') }}">Create new</a>
+{% endblock %}

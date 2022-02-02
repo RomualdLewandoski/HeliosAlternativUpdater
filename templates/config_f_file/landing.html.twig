@@ -1,8 +1,6 @@
 {% extends 'base.html.twig' %}
 
-
 {% block body %}
-
     <section class="content-header">
         <h1>
             Panel
@@ -16,27 +14,39 @@
 
     <div class="dashboard1">
         <div class="row">
-            <a href="{{ path('discord_config_index') }}" class="col-xl-6 col-12">
+
+            <a href="{{ path('config_download') }}" class="col-xl-4 col-lg-6 col-12">
                 <div class="counter-box">
                     <div class="shadow bg1">
                         <div class="text-white text-center">
-                            <i class="fa fa-rocket fa-2x"></i>
-                            <div class="mt-2">Gestion launcher</div>
+                            <i class="fa fa-file fa-2x"></i>
+                            <div class="mt-2">Fichiers divers</div>
                         </div>
                     </div>
                 </div>
             </a>
-            <a href="{{ path('discord_config_index') }}" class="col-xl-6 col-12">
+            <a href="{{ path('discord_config_index') }}" class="col-xl-4 col-lg-6 col-12">
                 <div class="counter-box">
                     <div class="shadow bg2">
                         <div class="text-white text-center">
-                            <i class="fa fa-cogs fa-2x"></i>
-                            <div class="mt-2">Gestion microlauncher</div>
+                            <i class="far fa-pallet fa-2x"></i>
+                            <div class="mt-2">Shaders</div>
+                        </div>
+                    </div>
+                </div>
+            </a>
+            <a href="{{ path('config_launcher_index') }}" class="col-xl-4 col-lg-6 col-12">
+                <div class="counter-box">
+                    <div class="shadow bg3">
+                        <div class="text-white text-center">
+                            <i class="far fa-paint-brush fa-2x"></i>
+                            <div class="mt-2">Texturepack</div>
                         </div>
                     </div>
                 </div>
             </a>
         </div>
     </div>
-
 {% endblock %}
+
+

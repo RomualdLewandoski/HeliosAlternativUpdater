@@ -1,0 +1,65 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}FMod index{% endblock %}
+
+{% block body %}
+    <section class="content-header">
+        <h1>
+            Mods
+            <small>Liste</small>
+        </h1>
+        <ol class="breadcrumb">
+            <li><a href=""><i class="fa fa-dashboard"></i> Home</a></li>
+            <li>Mods</li>
+            <li class="active">Liste</li>
+        </ol>
+    </section>
+
+    <div class="dashboard1">
+
+        <div class="row">
+            <div class="col-md-12 text-right mb-4">
+                <a href="{{ path('config_f_mod_new') }}" class="btn btn-sm btn-success"><i class="fa fa-plus"></i>
+                    Créer</a>
+            </div>
+        </div>
+        <div class="col-md-12 table-responsive">
+
+            <table class="table" id="myTable">
+                <thead>
+                <tr>
+                    <th>Nom</th>
+                    <th>Taille</th>
+                    <th>Sha</th>
+                    <th>actions</th>
+                </tr>
+                </thead>
+                <tbody>
+                {% for f_mod in f_mods %}
+                    <tr>
+                        <td>{{ f_mod.name }}</td>
+                        <td>{{ f_mod.size }}</td>
+                        <td>{{ f_mod.sha }}</td>
+                        <td>
+                            <a href="{{ path('config_f_mod_show', {'id': f_mod.id}) }}" class="btn btn-sm btn-success">Voir</a>
+                            <a href="{{ path('config_f_mod_edit', {'id': f_mod.id}) }}" class="btn btn-sm btn-warning">Editer</a>
+                        </td>
+                    </tr>
+                {% else %}
+                    <tr>
+                        <td colspan="5">no records found</td>
+                    </tr>
+                {% endfor %}
+                </tbody>
+            </table>
+            <script>
+                $(document).ready(() => {
+                    $('#myTable').dataTable()
+                })
+            </script>
+
+        </div>
+
+
+    </div>
+{% endblock %}
